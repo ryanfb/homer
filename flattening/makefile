@@ -67,16 +67,9 @@ ifneq (,$(findstring Darwin,$(UNAME)))
 	export CC		:=	/usr/bin/gcc
 	export CXX		:=	/usr/bin/g++
 	# CFLAGS	+=  -ftree-vectorize -fopenmp
-	CFLAGS	+=	-I/opt/local/include/opencv -I/opt/local/include -I/opt/local/include/boost
+	CFLAGS	+=	`pkg-config --cflags opencv` -I/usr/local/lib
   # LIBS	:=	-L/opt/local/lib -lboost_program_options -lhighgui -lcv -lcxcore 
-	LIBS	:=	/opt/local/lib/libboost_program_options-mt.a \
-						/opt/local/lib/libhighgui.dylib \
-						/opt/local/lib/libcv.dylib \
-						/opt/local/lib/libcxcore.dylib \
-						/opt/local/lib/libjpeg.a \
-						/opt/local/lib/libpng.a \
-						/opt/local/lib/libtiff.a \
-						/opt/local/lib/libz.a
+	LIBS	:=	/usr/local/lib/libboost_program_options-mt.a `pkg-config --libs opencv`
 	LIBS  += -lm -framework OpenGL -framework GLUT -framework Foundation -framework Carbon
 endif
 

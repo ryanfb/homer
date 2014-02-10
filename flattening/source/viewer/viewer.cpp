@@ -7,6 +7,7 @@
 #endif
 #include <cstdio>
 #include <cstdlib>
+#include <unistd.h>
 #include "smtss.h"
 
 #include <glui.h>
